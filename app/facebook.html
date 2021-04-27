@@ -20,7 +20,7 @@
         ></script>
         <div
           class="fb-like"
-          data-href="https://www.facebook.com/ViralAppSupport/"
+          data-href="https://www.facebook.com/VeeriralAppSupport/"
           data-width=""
           data-layout="standard"
           data-action="like"
@@ -29,5 +29,20 @@
         ></div>
       </section>
     </div>
+    <script>
+      function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return "";
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
+      var ta = document.getElementsByTagName("div");
+      for (var i = 0; i < ta.length; i++) {
+        if (ta[i].getAttribute("class") == "fb-like")
+          ta[i].setAttribute("data-href", getParameterByName("url"));
+      }
+    </script>
   </body>
 </html>
